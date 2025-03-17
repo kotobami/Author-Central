@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>著者名 | エレガントな著者サイト</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="parallax">
+        <div class="header-content">
+            <img src="images/author.jpg" alt="著者写真" class="author-img fade-in">
+            <h1>著者名</h1>
+            <p>ここにあなたのキャッチフレーズや簡単な紹介文を入れてください。</p>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="#home">ホーム</a>
+        <a href="#books">書籍</a>
+        <a href="#notes">学習帳</a>
+        <a href="#contact">連絡先</a>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- 主著セクション -->
+        <section id="books" class="featured-book">
+            <h2>代表作</h2>
+            <div class="book fade-in">
+                <img src="images/book1.jpg" alt="主著の表紙">
+                <h3>主著のタイトル</h3>
+                <p>ここに主著の簡単な説明を入れてください。代表作として強調されています。</p>
+            </div>
+        </section>
+
+        <!-- その他の書籍 -->
+        <section class="other-books">
+            <h2>その他の作品</h2>
+            <div class="book-grid">
+                <div class="book fade-in">
+                    <img src="images/book2.jpg" alt="二冊目の表紙">
+                    <h3>二冊目のタイトル</h3>
+                    <p>二冊目の簡単な説明をどうぞ。</p>
+                </div>
+                <div class="book fade-in">
+                    <img src="images/book3.jpg" alt="三冊目の表紙">
+                    <h3>三冊目のタイトル</h3>
+                    <p>三冊目の簡単な説明をどうぞ。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学習帳セクション -->
+        <section id="notes" class="notes">
+            <h2>学習帳シリーズ</h2>
+            <div class="book-grid">
+                <div class="book fade-in">
+                    <img src="images/note1.jpg" alt="学習帳1の表紙">
+                    <h3>学習帳1</h3>
+                </div>
+                <div class="book fade-in">
+                    <img src="images/note2.jpg" alt="学習帳2の表紙">
+                    <h3>学習帳2</h3>
+                </div>
+                <div class="book fade-in">
+                    <img src="images/note3.jpg" alt="学習帳3の表紙">
+                    <h3>学習帳3</h3>
+                </div>
+                <div class="book fade-in">
+                    <img src="images/note4.jpg" alt="学習帳4の表紙">
+                    <h3>学習帳4</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- 連絡先 -->
+        <section id="contact">
+            <h2>連絡先</h2>
+            <p>メール: example@email.com | Twitter: @yourhandle</p>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 著者名. All rights reserved.</p>
+    </footer>
+
+    <!-- スクロールフェードイン用のスクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.3,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+            faders.forEach(fader => appearOnScroll.observe(fader));
+        });
+    </script>
+</body>
+</html>
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
