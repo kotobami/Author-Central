@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>言喰 | 拙著の案内</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="parallax">
+        <div class="header-content">
+            <a href="https://x.com/jumon?s=21&t=sKpVBlw-wPfMQvCAC7zYpA" target="_blank">
+                <img src="images/Author.jpg" alt="著者画像" class="author-img">
+            </a>
+            <h1>言喰</h1>
+            <p>哲学者、漫画家、宅建士、空手家、プログラマー、さまざまな身分や役割を経て、今では無職となっている。</p>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="#home">ホーム</a>
+        <a href="#books">書籍</a>
+        <a href="#notes">学習帳</a>
+        <a href="#contact">連絡先</a>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- 書籍カルーセル -->
+        <section id="books" class="carousel-section">
+            <h2>書籍</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" data-index="0">
+                        <a href="https://www.amazon.co.jp/dp/B0CV5TPGBY" target="_blank">
+                            <img src="images/book1.jpg" alt="言喰諸論">
+                        </a>
+                    </div>
+                    <div class="carousel-item" data-index="1">
+                        <a href="https://www.amazon.co.jp/gp/aw/d/B0DZ76XC7M/ref=tmm_pap_swatch_0" target="_blank">
+                            <img src="images/book2.jpg" alt="赤淵村の記録">
+                        </a>
+                    </div>
+                    <div class="carousel-item" data-index="2">
+                        <a href="https://www.amazon.co.jp/%E6%9E%B6%E7%A9%BA%E3%81%AE%E5%BB%83%E6%B0%B4%E6%97%8F%E9%A4%A8%E3%83%BB%E5%BB%83%E5%9B%B3%E6%9B%B8%E9%A4%A8-%E8%A8%80%E5%96%B0-ebook/dp/B0DZWT5RDJ/?_encoding=UTF8&pd_rd_w=WIGLR&content-id=amzn1.sym.bb272e13-1a68-41b0-a370-44a252d487ac&pf_rd_p=bb272e13-1a68-41b0-a370-44a252d487ac&pf_rd_r=356-5996058-3580516&pd_rd_wg=99Ksb&pd_rd_r=fb02ad33-c192-40cf-a4e4-f74fe3a3ca64&ref_=aufs_ap_sc_dsk" target="_blank">
+                            <img src="images/book3.JPG" alt="架空の廃水族館・廃図書館">
+                        </a>
+                    </div>
+                </div>
+                <div class="description-container">
+                    <p class="description" data-index="0">言喰の主著となっている哲学書。超越論や分析哲学をはじめとして、さまざまな議論が抄録されている。多重帰納法を用いたグルーのパラドックスの解消法を提案している。</p>
+                    <p class="description" data-index="1">『言喰諸論』２－３０節に著した議論の敷衍と実践であり、因習の神経症的な側面を描いた作品である。</p>
+                    <p class="description" data-index="2">AI を用いて描出した写真集であり、単純な著者の性癖である。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 連絡先 -->
+        <section id="contact">
+            <h2>連絡先</h2>
+            <p>X@jumon</p>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <p>© 2025 kotobami. Author Central.</p>
+    </footer>
+
+    <!-- カルーセル用のスクリプト -->
+    <script>
+        const carousels = document.querySelectorAll('.carousel');
+        carousels.forEach(carousel => {
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = inner.querySelectorAll('.carousel-item');
+            const descriptions = carousel.querySelectorAll('.description');
+            let currentIndex = 0;
+            let startX = 0;
+            let isDragging = false;
+
+            // カルーセルの更新
+            function updateCarousel() {
+                const angle = -currentIndex * (360 / items.length);
+                inner.style.transform = `rotateY(${angle}deg)`;
+                descriptions.forEach((desc, index) => {
+                    desc.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // タッチイベントの処理
+            inner.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            inner.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const moveX = e.touches[0].clientX - startX;
+                if (moveX > 50) {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+                    updateCarousel();
+                    isDragging = false;
+                } else if (moveX < -50) {
+                    currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                    isDragging = false;
+                }
+            });
+
+            inner.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
