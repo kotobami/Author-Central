@@ -1,0 +1,162 @@
+/* 全体のスタイル */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* ヘッダーとパララックス */
+.parallax {
+    background-image: url('images/background.jpg'); /* 任意の背景画像を追加可能 */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.header-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.author-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #FFD700;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #FFD700;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    max-width: 600px;
+}
+
+/* ナビゲーション */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #FFD700;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* セクション */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+
+/* 書籍グリッド */
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.book {
+    width: 250px;
+    padding: 15px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.book h3 {
+    font-size: 1.3em;
+    color: #FFD700;
+}
+
+.book p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+/* 主著の特別スタイル */
+.featured-book .book {
+    width: 400px;
+    margin: 0 auto;
+}
+
+/* フェードインアニメーション */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .parallax {
+        height: 400px;
+    }
+    .author-img {
+        width: 150px;
+        height: 150px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .book, .featured-book .book {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #ccc;
+    font-size: 0.9em;
+}
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
