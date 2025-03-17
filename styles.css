@@ -1,0 +1,175 @@
+/* 全体のスタイル */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'MS Mincho', 'Hiragino Mincho ProN', serif;
+    line-height: 1.6;
+}
+
+/* ヘッダーとパララックス */
+.parallax {
+    background-image: url('images/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.author-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #C0C0C0;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3em;
+    color: #C0C0C0;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    max-width: 600px;
+}
+
+/* ナビゲーション */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #C0C0C0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* セクション */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #C0C0C0;
+    margin-bottom: 30px;
+}
+
+/* カルーセル */
+.carousel-section {
+    position: relative;
+    perspective: 1000px;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 200px;
+    top: 0;
+    left: 50%;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 3D配置 */
+.carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+.carousel-item:nth-child(2) { transform: rotateY(120deg) translateZ(300px); }
+.carousel-item:nth-child(3) { transform: rotateY(240deg) translateZ(300px); }
+
+/* 紹介文 */
+.description-container {
+    margin-top: 350px; /* 本の下に配置 */
+}
+
+.description {
+    display: none;
+    opacity: 0;
+    color: #fff;
+    font-size: 1.2em;
+    background: none; /* 背景を透明に */
+    transition: opacity 0.5s ease;
+}
+
+.description.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .parallax {
+        height: 400px;
+    }
+    .author-img {
+        width: 150px;
+        height: 150px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .carousel-item {
+        width: 150px;
+    }
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #ccc;
+    font-size: 0.9em;
+}
+​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
